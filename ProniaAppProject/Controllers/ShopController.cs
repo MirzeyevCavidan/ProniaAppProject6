@@ -32,6 +32,8 @@ namespace ProniaAppProject.Controllers
                 return NotFound();
             }
 
+
+
             List<Product> relatedProducts = _context.Products.Include(p => p.ProductImages).Include(p => p.Category).Where(p => p.CategoryId == product.CategoryId && p.Id != id).ToList();
 
             ShopVM shopVM = new ShopVM
